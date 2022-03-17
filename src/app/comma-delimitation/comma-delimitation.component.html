@@ -1,0 +1,99 @@
+<mat-card>
+    <mat-card-content>
+
+<!-- Input Form Section -->
+        <mat-card>
+            <mat-card-title>
+                <span>
+                    <mat-icon color="primary">input</mat-icon>
+                </span>
+            Input</mat-card-title>
+            <mat-card-content>
+                <form [formGroup]="inputForm">
+                    <mat-form-field appearance="fill" style="width: 100%;">
+                        <mat-label>Input</mat-label>
+                        <textarea 
+                            matInput 
+                            rows="8"
+                            id="input" 
+                            formControlName="input" 
+                            ></textarea>
+                    </mat-form-field>
+                </form>
+            </mat-card-content>
+        </mat-card>
+
+<!-- Radio Form Section -->
+    
+        <mat-card>
+            <mat-card-content>
+                <form [formGroup]="radioForm">
+                    <mat-radio-group aria-label="Select an option" formControlName="quotes">
+                        <mat-radio-button 
+                            id="Without Quotes"
+                            value='Without Quotes'
+                            >Without Quotes
+                        </mat-radio-button>
+                        <mat-radio-button 
+                            id="With Quotes"
+                            style="margin-left: 16px;" 
+                            value='With Quotes'
+                            >With Single Quotes</mat-radio-button>
+                    </mat-radio-group>
+                </form>
+            </mat-card-content>
+        </mat-card>
+
+ <!-- Output Form Section -->
+       
+        <mat-card
+        *ngIf="inputForm.valid">
+            <mat-card-title>
+                <span>
+                    <mat-icon color="primary">output</mat-icon>
+                </span>
+            Output</mat-card-title>
+            <mat-card-content>
+                <form [formGroup]="outputForm">
+                    <mat-form-field appearance="fill" style="width: 100%;">
+                        <mat-label>Output</mat-label>
+                        <textarea 
+                            matInput 
+                            rows="8"
+                            id="output"
+                            formControlName="output"></textarea>
+                    </mat-form-field>
+                </form>
+            </mat-card-content>
+        </mat-card>
+
+<!-- Buttons Form Section -->
+
+        <mat-card>
+            <mat-card-actions>
+                <form>
+                    <button mat-raised-button 
+                            color="primary" 
+                            aria-label="Copy Output" 
+                            style="margin-left: 16px;"
+                            (click)="copyOutput()"
+                            [disabled]="inputForm.invalid">
+                        <mat-icon>content_copy</mat-icon>
+                        <span>Copy Output</span>
+                    </button>
+
+                    <button mat-raised-button 
+                            color="warn" 
+                            aria-label="Clear Fields" 
+                            style="margin-left: 16px;" 
+                            (click)="clearForms()"
+                            *ngIf="inputForm.valid">
+                        <mat-icon>delete</mat-icon>
+                        <span>Clear</span>
+                    </button>
+                </form>
+            </mat-card-actions>
+        </mat-card>
+
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,161 @@
+<mat-card>
+
+<!-- Data Section-->
+    <mat-card-content>
+        <mat-card>
+            <mat-card-title>
+                <span>
+                    <mat-icon color="primary">text_snippet</mat-icon>
+                </span>
+                Enter Your Data Below</mat-card-title>
+            <mat-card-content>
+                <form [formGroup]="dataForm">
+                    <mat-form-field appearance="fill" style="width: 100%;">
+                        <mat-label>Data</mat-label>
+                        <textarea matInput 
+                                  rows="8"
+                                  id="data"
+                                  formControlName="data"></textarea>
+                    </mat-form-field>
+            </form>
+            </mat-card-content>
+        </mat-card>
+
+<!-- Pattern Section-->
+
+        <mat-card>
+            <mat-card-title>
+                <span>
+                    <mat-icon color="primary">code</mat-icon>
+                </span>
+                Replace Using Your Pattern Below</mat-card-title>
+            <mat-card-content>
+                <form [formGroup]="patternForm">
+                    <mat-form-field appearance="fill" style="width: 100%;">
+                        <mat-label>Pattern</mat-label>
+                        <textarea matInput 
+                                  rows="8"
+                                  id="pattern" 
+                                  formControlName="pattern"></textarea>
+                    </mat-form-field>
+                </form>
+            </mat-card-content>
+        </mat-card>
+
+
+<!-- Separator Section-->
+
+        <mat-card>
+            <mat-card-content>
+                <form class="example-form" [formGroup]="separatorForm">
+                    <span>
+                        <mat-icon color="primary">view_week</mat-icon>
+                    </span>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Column Separator</mat-label>
+                    <input matInput 
+                           placeholder="Comma Separator" 
+                           value=","
+                           id="column" 
+                           formControlName="column">
+                    </mat-form-field>
+                
+                    <span style="margin-left: 16px;">
+                        <mat-icon color="primary">table_rows</mat-icon>
+                    </span>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Row Separator</mat-label>
+                        <input matInput 
+                               placeholder="Comma Separator" 
+                               value="\n"
+                               id="row"
+                               formControlName="row">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill" style="margin-left: 16px;">
+                        <mat-label>Select</mat-label>
+                        <mat-select formControlName="dropDown"
+                        #dropDown
+                            value="patern-title">
+                            <mat-option value="-1"></mat-option>
+                            <mat-option 
+                                    *ngFor="let key of this.localStorageService.keys; let i = index"
+                            [value]="i">{{ key }}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    
+                      <button mat-mini-fab 
+                            color="primary"
+                            [matMenuTriggerFor]="paternMenu"
+                            aria-label="menu"
+                            matTooltip="Click for menu for pattern options"
+                            style="margin-left: 10px;">
+                        <mat-icon style="font-size: 300xp; padding-bottom: 18px">menu</mat-icon>
+                      </button>
+                      
+                </form>
+            </mat-card-content>
+        </mat-card>
+
+<!--Menu Items-->
+            <mat-menu #paternMenu="matMenu">
+                <button mat-menu-item
+                    (click)="openDialog()"
+                >Save</button>
+                <button mat-menu-item
+                    (click)="deletePattern()"
+                >Delete</button>
+            </mat-menu>
+
+<!-- Results Section-->
+
+
+        <mat-card
+        *ngIf="dataForm.valid && patternForm.valid && separatorForm.valid">
+            <mat-card-title>
+                <span>
+                    <mat-icon color="primary" style="transform: rotate(180deg)">mediation</mat-icon>
+                </span>
+            Results</mat-card-title>
+            <mat-card-content>
+                <form [formGroup]="resultsForm">
+                    <mat-form-field appearance="fill" style="width: 100%;">
+                        <!--mat-label>Results</mat-label-->
+                        <textarea matInput 
+                                  rows="8"
+                                  id="results"
+                                  formControlName="results"></textarea>
+                    </mat-form-field>
+                </form>
+            </mat-card-content>
+        </mat-card>
+
+<!-- Button Section-->
+
+        <mat-card>
+            <mat-card-actions>
+                <button mat-raised-button 
+                        color="primary" 
+                        aria-label="Copy Output" 
+                        style="margin-left: 16px;"
+                        [disabled]="resultsForm.invalid"
+                        (click)="copyOutput()">
+                    <mat-icon>content_copy</mat-icon>
+                    <span>Copy Output</span>
+                </button>
+                <button mat-raised-button 
+                        color="warn" 
+                        aria-label="Clear Fields" 
+                        style="margin-left: 16px;"
+                        *ngIf="dataForm.valid || patternForm.valid"
+                        (click)="clearForms()">
+                    <mat-icon>delete</mat-icon>
+                    <span>Clear</span>
+                </button>
+            </mat-card-actions>
+        </mat-card>
+
+    </mat-card-content>
+</mat-card>
+
+  

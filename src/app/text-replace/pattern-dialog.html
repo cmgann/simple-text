@@ -1,0 +1,11 @@
+<div mat-dialog-content>
+    <p>What is the Pattern Name?</p>
+    <mat-form-field appearance="fill">
+      <mat-label>Pattern Name</mat-label>
+      <input matInput [(ngModel)]="data.title">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button [mat-dialog-close]="data.title" cdkFocusInitial>Save</button>
+  </div>

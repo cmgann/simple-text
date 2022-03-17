@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+  <h1>Simple Text</h1>
+</mat-toolbar>
+
+
+<mat-tab-group>
+    <mat-tab label="Comma Delimitation">
+        <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">join_full</mat-icon>
+            <span style="margin-left: 4px;">Comma Delimitation</span>
+          </ng-template>
+        <app-comma-delimitation></app-comma-delimitation>
+    </mat-tab>
+    <mat-tab label="Text Replace">
+        <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">repeat</mat-icon>
+            <span style="margin-left: 4px;">Text Replace</span>
+          </ng-template>
+        <app-text-replace></app-text-replace>
+    </mat-tab>
+</mat-tab-group>
