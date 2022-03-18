@@ -14,6 +14,8 @@ import { PatternDialog, TextReplaceComponent } from './text-replace/text-replace
 
 import { commaDelimatedService } from './shared/comma-delimitation.service';
 import { textReplaceService } from './shared/text-replace.service';
+import { HomeComponent } from './home/home.component';
+import { CommaDelimitedDialog, DialogService, TextReplaceDialog } from './header/dialog.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,10 @@ import { textReplaceService } from './shared/text-replace.service';
     HeaderComponent,
     CommaDelimitationComponent,
     TextReplaceComponent,
-    PatternDialog
+    PatternDialog,
+    HomeComponent,
+    CommaDelimitedDialog,
+    TextReplaceDialog,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +37,7 @@ import { textReplaceService } from './shared/text-replace.service';
     ReactiveFormsModule,
     FormsModule,
   ],
-  providers: [commaDelimatedService,textReplaceService],
+  providers: [commaDelimatedService,textReplaceService,DialogService,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

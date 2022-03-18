@@ -1,0 +1,67 @@
+<h2 mat-dialog-title>Text Replace</h2>
+<hr>
+
+<mat-dialog-content class="mat-typography">
+    <h3>Data Field:</h3>
+    <p>
+        Type your data in the Data field for the text that you would like to manipulate.
+    </p>
+    <p>
+        Example: <br>
+        John,Doe <br>
+        Jane,Doe
+    </p>
+    <p>
+        Be sure to verify that your Separators are accurate. For this we will use: <br>
+        Column Separator = , <br>
+        Row Separator = /n
+    </p>
+    <p>
+        ** Hint, the /n means that it is for the next line, we will go over this more below
+        in the Separator Help section. **
+    </p>
+    <hr>
+    <h3>Pattern Field:</h3>
+    <p>
+        Type your pattern for which you would like to the "$" to tag where you would
+        like to insert the text from your Data Field.
+    </p>
+    <p>
+    Example: <br>
+    First Name: $0 <br>
+    Last Name: $1 <br>
+    </p>
+    <p>This will have the Result: <br>
+        First Name: John <br>
+        Last Name: Doe <br> <br>
+        First Name: Jane <br>
+        Last Name: Doe
+    </p>
+    <p>
+        *** Important, the first tag will start with $0 the next tag would be $1 and so on. ***
+    </p>
+    <hr>
+
+    <h3>Separator Help:</h3>
+    Some Separators will need to start with a '\' some examples below: <br>
+    \n = New Line <br>
+    \t = Tab <br>
+    \| = | (Pipe)
+
+    <p>
+        Most normal characters will not require '\'.
+    </p>
+
+    <hr>
+
+    <h3>You can save your pattern for future use!</h3>
+    <p>
+        If you have a pattern added in that you would like to save for your common tasks,
+        then click on the Menu button to the right of the dropdown and click "save". 
+    </p>
+    <p>
+        Then later on when you visit you can select it from the drop down menu and it will
+        automaticly populate your pattern for you.
+    </p>
+
+</mat-dialog-content>
