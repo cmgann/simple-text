@@ -1,15 +1,17 @@
 <br>
 
-<div class="card-deck" style="padding-left: 1%; padding-right: 1%;">
 
+<mat-grid-list cols="2" rowHeight="5:1">
 
-    
+    <mat-grid-tile>
         <mat-card class="card" 
             routerLink="comma"
             color="primary"
             style="cursor:pointer;
             background: #3f51b5;
-            color: #fff;">
+            color: #fff;
+            width: 90%;
+            height: 50%;">
             <mat-card-title>
                 <mat-icon>join_full</mat-icon>
                 Comma Delimitation
@@ -18,12 +20,16 @@
                 Tool to comma delimate with or without single quotes.
             </mat-card-subtitle>
         </mat-card>
-    
+    </mat-grid-tile>
+
+    <mat-grid-tile>
         <mat-card class="card"
             routerLink="text-replace"
             style="cursor:pointer;
             background: #3f51b5;
-            color: #fff;">
+            color: #fff;
+            width: 90%;
+            height: 50%;">
             <mat-card-title>
                 <mat-icon>repeat</mat-icon>
                 Text Replace
@@ -32,5 +38,6 @@
                 Create a pattern and duplicate it with your input.
             </mat-card-subtitle>
         </mat-card>
-                    
-</div>
+    </mat-grid-tile>
+
+</mat-grid-list>
