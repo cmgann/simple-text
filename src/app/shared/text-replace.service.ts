@@ -73,13 +73,13 @@ export class textReplaceService {
         }else{
             for (let item of column) {
                 // turn item into regex
-                var value = '$' + column.indexOf(item)
-                var re = new RegExp(value, 'g');
+                var value = '[$]' + column.indexOf(item) + ''
+                var re = new RegExp(value, 'gi');
 
                 if (tempString == undefined){
                     continue;
                 }else{
-                    tempString = tempString.replace(value, item);
+                    tempString = tempString.replace(re, item);
                 }
             };
             return tempString
