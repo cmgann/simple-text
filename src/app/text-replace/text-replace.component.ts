@@ -76,8 +76,7 @@ export class TextReplaceComponent implements OnInit {
             'results': this.textReplaceService.resultsForm
             });
 
-            if (this.patternChange(value.dropDown)){
-              console.log('drop down changed');
+            if (this.patternChange(value.dropDown) == true){
               let pattern = this.localStorageService.get(this.localStorageService.keys[value.dropDown]);
               pattern = this.textReplaceService.trimSelectedPattern(pattern)
               this.patternForm.patchValue({
@@ -166,8 +165,10 @@ export class TextReplaceComponent implements OnInit {
     })
   };
 
-  patternChange(index: number) {
+  patternChange(index: number): boolean {
     if (index != this.patternIndex) {
+      this.patternIndex = index;
+      // might need to update to return false if index == -1 to not delete the pattern if removing the selected value
       return true
     }else{
       return false
