@@ -89,6 +89,11 @@ export class textReplaceService {
     trimSelectedPattern(pattern:string) {
         try{
         pattern = pattern.slice(1,-1)
+        var re = new RegExp( /\\n/ , 'gi');
+        var re2 = new RegExp(/\\t/, 'gi');
+        pattern = pattern.replace(re, '\n')
+        pattern = pattern.replace(re2, '\t')
+
         return pattern
         }
         catch{
